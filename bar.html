@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	.bar {
+        		border: 1px solid #ccc;
+        	}
+        </style>
+    </head>
+    <body>
+    	<canvas class="bar" width="800" height="500"></canvas>
+    </body>
+    <script>
+    	var data = [100, 230, 80, 160, 70, 120, 150, 20, 320];
+    	var xAxis = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月'];
+    	var ctx = document.querySelector('.bar').getContext('2d');
+
+    	ctx.moveTo(50, 450);
+    	ctx.lineTo(50, 50);
+    	ctx.moveTo(50, 450);
+    	ctx.lineTo(700, 450);
+    	ctx.stroke();
+
+    	ctx.fillStyle = 'green';
+    	data.map(function(d, i) {
+    		ctx.fillRect(60 * (i + 1), 450 - d, 40, d);
+    		ctx.fillText(xAxis[i], 60 * (i + 1) + 10, 465);
+    	});
+    </script>
+</html>
